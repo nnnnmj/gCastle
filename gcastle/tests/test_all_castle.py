@@ -15,6 +15,7 @@
 
 import sys
 sys.path.append('../')
+print (sys.path)
 import torch
 import logging
 import unittest

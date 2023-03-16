@@ -61,7 +61,7 @@ class DAG(object):
 
     @staticmethod
     def _graph_to_adjmat(G):
-        return nx.to_numpy_matrix(G)
+        return nx.to_numpy_array(G)
 
     @staticmethod
     def _BtoW(B, d, w_range):
@@ -322,7 +322,7 @@ class IIDSimulation(object):
             if len(noise_scale) != d:
                 raise ValueError('noise scale must be a scalar or has length d')
             scale_vec = noise_scale
-        G_nx =  nx.from_numpy_matrix(W, create_using=nx.DiGraph)
+        G_nx =  nx.from_numpy_array(W, create_using=nx.DiGraph)
         if not nx.is_directed_acyclic_graph(G_nx):
             raise ValueError('W must be a DAG')
         if np.isinf(n):  # population risk for linear gauss SEM
@@ -413,7 +413,7 @@ class IIDSimulation(object):
             scale_vec = noise_scale
 
         X = np.zeros([n, d])
-        G_nx =  nx.from_numpy_matrix(B, create_using=nx.DiGraph)
+        G_nx =  nx.from_numpy_array(B, create_using=nx.DiGraph)
         ordered_vertices = list(nx.topological_sort(G_nx))
         assert len(ordered_vertices) == d
         for j in ordered_vertices:
@@ -560,7 +560,7 @@ class Topology(object):
         assert n_nodes > 0, 'The number of nodes must be greater than 0.'
         creation_prob = (2*n_edges)/(n_nodes**2)
         G = nx.erdos_renyi_graph(n=n_nodes, p=creation_prob, seed=seed)
-        B = nx.to_numpy_matrix(G)
+        B = nx.to_numpy_array(G)
         return B
 
 
