@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__all__ = ['ANMNonlinear', 'GES', 'TTPM', 'DirectLiNGAM', 'ICALiNGAM', 'PC', 'Notears', 'DAG_GNN',
+__all__ = ['ANMNonlinear', 'NCPLinear', 'GES', 'TTPM', 'DirectLiNGAM', 'ICALiNGAM', 'PC', 'Notears', 'DAG_GNN',
            'NotearsLowRank', 'RL', 'CORL', 'GraNDAG', 'NotearsNonlinear', 'GOLEM', 'MCSL', 'GAE']
 
 
@@ -25,6 +25,7 @@ from .pc import PC
 from .anm import ANMNonlinear
 from .gradient.notears import Notears
 from .gradient.notears import NotearsLowRank
+from .ncpop import NCPLinear
 
 from ..backend import backend, logging
 
